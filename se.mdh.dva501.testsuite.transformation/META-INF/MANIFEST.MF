@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Acceleo Transformation Module Runtime Plug-in
+Bundle-SymbolicName: se.mdh.dva501.testsuite.transformation
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: se.mdh.dva501.testsuite.transformation.Activator
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.common;bundle-version="3.3.0",
+ org.eclipse.acceleo.model;bundle-version="3.3.0",
+ org.eclipse.acceleo.profiler;bundle-version="3.3.0",
+ org.eclipse.acceleo.engine;bundle-version="3.3.0",
+ com.google.guava,
+ org.eclipse.xtext;bundle-version="2.20.0",
+ org.apache.log4j;bundle-version="1.2.15",
+ se.mdh.dva501.generic;bundle-version="0.1.0",
+ se.mdh.dva501.productspecific;bundle-version="0.1.0",
+ se.mdh.dva501.testsuite;bundle-version="1.0.0",
+ se.mdh.dva501.weaving;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: se.mdh.dva501.testsuite.transformation.main,
+ se.mdh.dva501.testsuite.transformation.services
+

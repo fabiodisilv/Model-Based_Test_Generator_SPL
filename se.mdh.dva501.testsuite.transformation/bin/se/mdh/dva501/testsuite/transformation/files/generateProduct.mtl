@@ -1,0 +1,93 @@
+[comment encoding = UTF-8 /]
+[module generateProduct('http://www.mdh.se/dva501/generic', 'http://www.mdh.se/dva501/productspecific', 'http://www.mdh.se/dva501/testsuite/TestSuite', 'http://www.mdh.se/dva501/weaving')]
+
+[import se::mdh::dva501::testsuite::transformation::services::services /]
+
+[template public generateProduct(aProduct : Product, aWeaving : Weaving, aGenericFamily : generic::Family, aTestSuite : TestSuite)]
+
+[file ('TestSuite'.concat(aProduct.name.concat('.cs')), false, 'UTF-8')]
+
+[for (aTestCase : TestCase | aTestSuite.testCases)]
+[if (isProductException(aProduct, aTestCase))][comment if this product is contained in the exceptions, skip this testcase /]
+[let aGenericFunction : GenericFunction = getGenericFunction(aTestCase.genericFunction, aGenericFamily)]
+	//Generic function [aGenericFunction.name/]
+	//[aGenericFunction.description/]
+	public void [aTestCase.name/](){
+		[for (aStep : Step | aTestCase.steps)]
+			[comment check if the specific signal exists for the product /]
+			[if (getProductSpecificInput(aProduct, aStep, aWeaving, aGenericFunction)->notEmpty())]
+			[comment template SET /]			
+			[if (aStep.eClass().name.equalsIgnoreCase('Set'))]
+			[let aStep : Set = aStep]
+			//[aStep.eClass().name/] [aStep.genericSignal.name/] [aStep.value.name/]
+			[getProductSpecificInput(aProduct, aStep, aWeaving, aGenericFunction).system.name/]['['/]"[getProductSpecificInput(aProduct, aStep, aWeaving, aGenericFunction).signal.name/]"[']'/].Value = [if (not isProductValueException(aProduct, aStep))][parseValue(aStep.value.name)/][/if][if (isProductValueException(aProduct, aStep))][parseValue(getProductValueException(aProduct, aStep).productValue)/][/if];
+			[/let]
+			[/if]
+			[comment template FORCE /]
+			[if (aStep.eClass().name.equalsIgnoreCase('Force'))]
+			[let aStep : Force = aStep]
+			//[aStep.eClass().name/] [aStep.genericSignal.name/] [aStep.value.name/]
+			[getProductSpecificInput(aProduct, aStep, aWeaving, aGenericFunction).system.name/]['['/]"[getProductSpecificInput(aProduct, aStep, aWeaving, aGenericFunction).signal.name/]"[']'/].Force([if (not isProductValueException(aProduct, aStep))][parseValue(aStep.value.name)/][/if][if (isProductValueException(aProduct, aStep))][parseValue(getProductValueException(aProduct, aStep).productValue)/][/if]);
+			[/let]			
+			[/if]
+			[comment template UFNFORCE /]
+			[if (aStep.eClass().name.equalsIgnoreCase('Unforce'))]
+			//[aStep.eClass().name/] [aStep.genericSignal.name/]
+			[getProductSpecificInput(aProduct, aStep, aWeaving, aGenericFunction).system.name/]['['/]"[getProductSpecificInput(aProduct, aStep, aWeaving, aGenericFunction).signal.name/]"[']'/].Unforce();
+			[/if]	
+			[/if]
+			[comment template CHECK /]
+			[comment check if the specific signal exists for the product /]
+			[if (getProductSpecificOutput(aProduct, aStep, aWeaving, aGenericFunction)->notEmpty())]
+			[if (aStep.eClass().name.equalsIgnoreCase('Check'))]
+			[let aCheck : Check = aStep]
+			//[aCheck.eClass().name/] [aCheck.genericSignal.name/] [aCheck.value.name/]
+			[getProductSpecificOutput(aProduct, aCheck, aWeaving, aGenericFunction).system.name/]['['/]"[getProductSpecificOutput(aProduct, aCheck, aWeaving, aGenericFunction).signal.name/]"[']'/].WaitForSignal([if (not isProductValueException(aProduct, aStep))][parseValue(aCheck.value.name)/][/if][if (isProductValueException(aProduct, aStep))][parseValue(getProductValueException(aProduct, aStep).productValue)/][/if], [aCheck.timeout.name/]);
+			[/let]
+			[/if]
+			[/if]
+		[/for]
+	}
+
+[/let]
+[/if]
+[/for]
+
+[for (aProductTestCase : ProductTestCase| aTestSuite.productTestCases)]
+		
+		[comment if the product specific test case refers to this product generate it /]
+		[if (aProductTestCase.productName.equalsIgnoreCase(aProduct.name))]
+		//Specific TestCase defined on the Product
+		public void [aProductTestCase.name/](){
+			[for (aProductStep : testSuite::ProductStep | aProductTestCase.productSteps)]
+			[comment template SET /]
+			[if (aProductStep.eClass().name.equalsIgnoreCase('ProductSet'))]
+			[let aProductStep : ProductSet = aProductStep]
+			[aProductStep.system/]['['/]"[aProductStep.productSignal.name/]"[']'/].Value = [parseValue(aProductStep.value.name)/];
+			[/let]
+			[/if]
+			[comment template FORCE /]
+			[if (aProductStep.eClass().name.equalsIgnoreCase('ProductForce'))]
+			[let aProductStep : ProductForce = aProductStep]
+			[aProductStep.system/]['['/]"[aProductStep.productSignal.name/]"[']'/].Force([parseValue(aProductStep.value.name)/]);
+			[/let]
+			[/if]
+			[comment template UNFORCE /]
+			[if (aProductStep.eClass().name.equalsIgnoreCase('ProductUnforce'))]
+			[let aProductStep : ProductUnforce = aProductStep]
+			[aProductStep.system/]['['/]"[aProductStep.productSignal.name/]"[']'/].Unforce();
+			[/let]
+			[/if]
+			[comment template CHECK /]
+			[if (aProductStep.eClass().name.equalsIgnoreCase('ProductCheck'))]
+			[let aProductCheck : ProductCheck = aProductStep]
+			[aProductStep.system/]['['/]"[aProductStep.productSignal.name/]"[']'/].WaitForSignal([parseValue(aProductCheck.value.name)/], [aProductCheck.timeout.name/]);
+			[/let]
+			[/if]
+			[/for]
+		}
+		[/if]
+	[/for]
+
+[/file]
+[/template]

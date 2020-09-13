@@ -1,0 +1,49 @@
+grammar se.mdh.dva501.testsuite.TestSuite with org.eclipse.xtext.common.Terminals
+
+generate testSuite "http://www.mdh.se/dva501/testsuite/TestSuite"
+
+TestSuite: (testCases+=TestCase)* (productTestCases+=ProductTestCase)*;
+
+TestCase: 'TestCase' name=ID 'checks' genericFunction=ID productException+=ProductException* '{'
+	(steps+=Step)*
+	'}';
+
+ProductException: 'except' 'Product' productName=ID;
+
+Step: Set | Check | Force | Unforce;
+
+Set: 'Set' 'Signal' genericSignal=Signal 'to' value=Value productValueExceptions+=ProductValueException*;
+
+Force: 'Force' 'Signal' genericSignal=Signal 'to' value=Value productValueExceptions+=ProductValueException*;
+
+Unforce: 'Unforce' 'Signal' genericSignal=Signal;
+
+Check: 'Check' 'Signal' genericSignal=Signal 'to' value=Value productValueExceptions+=ProductValueException* 'timeout' timeout=Timeout;
+
+ProductValueException: '(' 'Exception' 'Product' productName=ID 'to' productValue=ValueType ')';
+
+Signal: name=ID;
+
+Value: name=ValueType;
+
+Timeout: name=INT; 
+
+ValueType:
+    (ID | ('-')? INT );
+    
+ProductTestCase: 'Specific' 'TestCase' name=ID 'for' 'product' productName=ID '{'
+	(productSteps+=ProductStep)*
+	'}';
+	
+ProductStep: ProductSet | ProductCheck | ProductForce | ProductUnforce;
+
+ProductSet: 'Set' 'Product' 'Signal' productSignal=Signal 'on' 'System' system=ID 'to' value=Value;
+
+ProductForce: 'Force' 'Product' 'Signal' productSignal=Signal 'on' 'System' system=ID 'to' value=Value;
+
+ProductUnforce: 'Unforce' 'Product' 'Signal' productSignal=Signal 'on' 'System' system=ID;
+
+ProductCheck: 'Check' 'Product' 'Signal' productSignal=Signal 'on' 'System' system=ID 'to' value=Value 'timeout' timeout=Timeout;	
+	
+	
+	

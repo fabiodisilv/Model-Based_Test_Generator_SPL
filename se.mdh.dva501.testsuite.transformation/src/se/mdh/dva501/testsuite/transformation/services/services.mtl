@@ -1,0 +1,47 @@
+[comment encoding = UTF-8 /]
+[module services('http://www.mdh.se/dva501/generic', 'http://www.mdh.se/dva501/productspecific', 'http://www.mdh.se/dva501/testsuite/TestSuite', 'http://www.mdh.se/dva501/weaving')/]
+
+[query public getTestSuite(anOclAny: OclAny) : TestSuite
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'getTestSuite()', Sequence{})
+/]
+
+[query public getGeneric(anOclAny: OclAny) : generic::Family
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'getGeneric()', Sequence{})
+/]
+
+[query public getProductSpecific(anOclAny: OclAny) : productspecific::Family
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'getProductSpecific()', Sequence{})
+/]
+
+[query public getGenericFunction(arg0 : String, arg1 : Family) : GenericFunction
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'getGenericFunction(java.lang.String, generic.Family)', Sequence{arg0, arg1})
+/]
+
+[query public getProductSpecificInput(arg0 : Product, arg1 : Step, arg2 : Weaving, arg3 : GenericFunction) : ProductSpecificInput
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'getProductSpecificInput(productspecific.Product, se.mdh.dva501.testsuite.testSuite.Step, weaving.Weaving, generic.GenericFunction)', Sequence{arg0, arg1, arg2, arg3})
+/]
+
+[query public getProductSpecificOutput(arg0 : Product, arg1 : Step, arg2 : Weaving, arg3 : GenericFunction) : ProductSpecificOutput
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'getProductSpecificOutput(productspecific.Product, se.mdh.dva501.testsuite.testSuite.Step, weaving.Weaving, generic.GenericFunction)', Sequence{arg0, arg1, arg2, arg3})
+/]
+
+[query public getProductSpecificFunction(arg0 : GenericFunction, arg1 : Product, arg2 : Weaving) : ProductSpecificFunction
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'getProductSpecificFunction(generic.GenericFunction, productspecific.Product, weaving.Weaving)', Sequence{arg0, arg1, arg2})
+/]
+
+[query public isProductValueException(arg0 : Product, arg1 : Step) : Boolean
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'isProductValueException(productspecific.Product, se.mdh.dva501.testsuite.testSuite.Step)', Sequence{arg0, arg1})
+/]
+
+[query public getProductValueException(arg0 : Product, arg1 : Step) : ProductValueException
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'getProductValueException(productspecific.Product, se.mdh.dva501.testsuite.testSuite.Step)', Sequence{arg0, arg1})
+/]
+
+[query public isProductException(arg0 : Product, arg1 : TestCase) : Boolean
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'isProductException(productspecific.Product, se.mdh.dva501.testsuite.testSuite.TestCase)', Sequence{arg0, arg1})
+/]
+
+[query public parseValue(arg0 : String) : String
+	= invoke('se.mdh.dva501.testsuite.transformation.services.Services', 'parseValue(java.lang.String)', Sequence{arg0})
+/]
+

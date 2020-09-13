@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="weaving" nsURI="http://www.mdh.se/dva501/weaving" nsPrefix="se.mdh.dva501.weaving">
+  <eClassifiers xsi:type="ecore:EClass" name="Weaving">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionLinks" lowerBound="1"
+        upperBound="-1" eType="#//FunctionLink" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="genericFunction" lowerBound="1"
+        eType="ecore:EClass ../../se.mdh.dva501.generic/model/generic.ecore#//GenericFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productSpecificFunctions"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass ../../se.mdh.dva501.productspecific/model/productspecific.ecore#//ProductSpecificFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputLinks" lowerBound="1"
+        upperBound="-1" eType="#//InputLink" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputLinks" lowerBound="1"
+        upperBound="-1" eType="#//OutputLink" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="genericInput" lowerBound="1"
+        eType="ecore:EClass ../../se.mdh.dva501.generic/model/generic.ecore#//GenericInput"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productSpecificInputs"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass ../../se.mdh.dva501.productspecific/model/productspecific.ecore#//ProductSpecificInput"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="genericOutput" lowerBound="1"
+        eType="ecore:EClass ../../se.mdh.dva501.generic/model/generic.ecore#//GenericOutput"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productSpecificOutputs"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass ../../se.mdh.dva501.productspecific/model/productspecific.ecore#//ProductSpecificOutput"/>
+  </eClassifiers>
+</ecore:EPackage>

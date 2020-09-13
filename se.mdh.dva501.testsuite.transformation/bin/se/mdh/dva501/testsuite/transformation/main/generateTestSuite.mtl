@@ -1,0 +1,23 @@
+[comment encoding = UTF-8 /]
+[module generateTestSuite('http://www.mdh.se/dva501/generic', 'http://www.mdh.se/dva501/productspecific', 'http://www.mdh.se/dva501/testsuite/TestSuite', 'http://www.mdh.se/dva501/weaving')]
+
+[import se::mdh::dva501::testsuite::transformation::services::services /]
+[import se::mdh::dva501::testsuite::transformation::files::generateProduct /]
+
+[template public generateTestSuite(aWeaving : Weaving)]
+[comment @main/]
+[comment load testsuite DSL /]
+[let aTestSuite : TestSuite = getTestSuite()]
+[comment load generic model /]
+[let aGenericFamily : generic::Family = getGeneric()]
+[comment load productspecific model /]
+[let aProductFamily : productspecific::Family = getProductSpecific()]
+
+[for (aProduct : Product| aProductFamily.products)]
+	[generateProduct(aProduct, aWeaving, aGenericFamily, aTestSuite)/]
+[/for]
+
+[/let]
+[/let]
+[/let]
+[/template]
