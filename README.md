@@ -7,3 +7,5 @@ Content of the repository:
 * Weaving MetaModel
 * TestSuite Domain-Specific Language
 * Model-to-Text Transformation
+* Models
+* Generic Tests
