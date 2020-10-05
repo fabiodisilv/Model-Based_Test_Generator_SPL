@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<se.mdh.dva501.productspecific:Family xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:se.mdh.dva501.productspecific="http://www.mdh.se/dva501/productspecific" name="Aventra product specific model">
+  <products name="EAA" productSpecificFunctions="TBC_Response_EAA ActivateCab_EAA"/>
+  <products name="LOT" productSpecificFunctions="TBC_Response_LOT ActivateCab_LOT"/>
+  <products name="SWR" productSpecificFunctions="TBC_Response_SWR ActivateCab_SWR"/>
+  <productSpecificFunctions name="ActivateCab_EAA" productSpecificSteps="//@productSpecificSteps.12 //@productSpecificSteps.13 //@productSpecificSteps.18 //@productSpecificSteps.19 //@productSpecificSteps.20 //@productSpecificSteps.21 //@productSpecificSteps.16 //@productSpecificSteps.17" projects="EAA"/>
+  <productSpecificFunctions name="TBC_Response_EAA" productSpecificSteps="//@productSpecificSteps.0 //@productSpecificSteps.1 //@productSpecificSteps.8 //@productSpecificSteps.9 //@productSpecificSteps.4 //@productSpecificSteps.5" projects="EAA"/>
+  <productSpecificFunctions name="ActivateCab_LOT" productSpecificSteps="//@productSpecificSteps.10 //@productSpecificSteps.11 //@productSpecificSteps.18 //@productSpecificSteps.19 //@productSpecificSteps.20 //@productSpecificSteps.21 //@productSpecificSteps.14 //@productSpecificSteps.15" projects="LOT"/>
+  <productSpecificFunctions name="TBC_Response_LOT" productSpecificSteps="//@productSpecificSteps.8 //@productSpecificSteps.9 //@productSpecificSteps.2 //@productSpecificSteps.3 //@productSpecificSteps.6 //@productSpecificSteps.7" projects="LOT"/>
+  <productSpecificFunctions name="ActivateCab_SWR" productSpecificSteps="//@productSpecificSteps.12 //@productSpecificSteps.13 //@productSpecificSteps.18 //@productSpecificSteps.19 //@productSpecificSteps.20 //@productSpecificSteps.21" projects="SWR"/>
+  <productSpecificFunctions name="TBC_Response_SWR" productSpecificSteps="//@productSpecificSteps.0 //@productSpecificSteps.1 //@productSpecificSteps.8" projects="SWR"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS1.EAA-SWR-DEM_LEV_VALID_1-EAA-SWR" signal="//@signals.9" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS1.EAA-SWR-DEM_LEV_1-EAA-SWR" signal="//@signals.10" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS1.LOT-DEM_LEV_VALID_1-LOT" signal="//@signals.4" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS1.LOT-DEM_LEV_1-LOT" signal="//@signals.5" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS2.EAA-DEM_LEV_VALID_3-EAA" signal="//@signals.15" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS2.EAA-DEM_LEV_3-EAA" signal="//@signals.16" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS2.LOT-DEM_LEV_VALID_3-LOT" signal="//@signals.17" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS2.LOT-DEM_LEV_3-LOT" signal="//@signals.18" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificOutput" name="SYS1.TB_EFFORT" signal="//@signals.6" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificOutput" name="SYS2.TB_EFFORT" signal="//@signals.6" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS1.LOT-HW11_SIGNAL92_INPUT1-LOT" signal="//@signals.0" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS1.LOT-HW31_SIGNAL99_INPUT1-LOT" signal="//@signals.1" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS1.EAA-SWR-HW11_SIGNAL95_INPUT1-EAA-SWR" signal="//@signals.7" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS1.EAA-SWR-HW31_SIGNAL98_INPUT1-EAA-SWR" signal="//@signals.8" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS2.LOT-HW13_SIGNALB2_INPUT1-LOT" signal="//@signals.11" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS2.LOT-HW33_SIGNALB9_INPUT1-LOT" signal="//@signals.12" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS2.EAA-SWR-HW13_SIGNALB5_INPUT1-EAA-SWR" signal="//@signals.13" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificInput" name="SYS2.EAA-SWR-HW33_SIGNALB8_INPUT1-EAA-SWR" signal="//@signals.14" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificOutput" name="SYS1.SAFETY_CONTROL_CAB_TRAIN" signal="//@signals.2" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificOutput" name="SYS1.SAFETY_CONTROL_CAB_CONSIST" signal="//@signals.3" system="//@systems.0"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificOutput" name="SYS2.SAFETY_CONTROL_CAB_TRAIN" signal="//@signals.2" system="//@systems.1"/>
+  <productSpecificSteps xsi:type="se.mdh.dva501.productspecific:ProductSpecificOutput" name="SYS2.SAFETY_CONTROL_CAB_CONSIST" signal="//@signals.3" system="//@systems.1"/>
+  <signals name="LOT-HW11_SIGNAL92_INPUT1-LOT"/>
+  <signals name="LOT-HW31_SIGNAL99_INPUT1-LOT"/>
+  <signals name="SAFETY_CONTROL_CAB_TRAIN"/>
+  <signals name="SAFETY_CONTROL_CAB_CONSIST"/>
+  <signals name="LOT-DEM_LEV_VALID_1-LOT"/>
+  <signals name="LOT-DEM_LEV_1-LOT"/>
+  <signals name="TB_EFFORT"/>
+  <signals name="EAA-SWR-HW11_SIGNAL95_INPUT1-EAA-SWR"/>
+  <signals name="EAA-SWR-HW31_SIGNAL98_INPUT1-EAA-SWR"/>
+  <signals name="EAA-SWR-DEM_LEV_VALID_1-EAA-SWR"/>
+  <signals name="EAA-SWR-DEM_LEV_1-EAA-SWR"/>
+  <signals name="LOT-HW13_SIGNALB2_INPUT1-LOT"/>
+  <signals name="LOT-HW33_SIGNALB9_INPUT1-LOT"/>
+  <signals name="EAA-SWR-HW13_SIGNALB5_INPUT1-EAA-SWR"/>
+  <signals name="EAA-SWR-HW33_SIGNALB8_INPUT1-EAA-SWR"/>
+  <signals name="EAA-DEM_LEV_VALID_3-EAA"/>
+  <signals name="EAA-DEM_LEV_3-EAA"/>
+  <signals name="LOT-DEM_LEV_VALID_3-LOT"/>
+  <signals name="LOT-DEM_LEV_3-LOT"/>
+  <systems name="SYS1"/>
+  <systems name="SYS2"/>
+</se.mdh.dva501.productspecific:Family>

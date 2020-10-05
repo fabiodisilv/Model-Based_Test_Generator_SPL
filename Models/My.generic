@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<se.mdh.dva501.generic:Family xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:se.mdh.dva501.generic="http://www.mdh.se/dva501/generic" name="Aventra generic model">
+  <genericFunctions name="ActivateCab" description="Function to activate the cab">
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericInput" name="MASTER_HW11_INPUT1"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericInput" name="MASTER_HW31_INPUT1"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericInput" name="SLAVE_HW13_INPUT1"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericInput" name="SLAVE_HW33_INPUT1"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericOutput" name="MASTER_SAFETY_CAB_TRAIN"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericOutput" name="MASTER_SAFETY_CAB_CONSIST"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericOutput" name="SLAVE_SAFETY_CAB_TRAIN"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericOutput" name="SLAVE_SAFETY_CAB_CONSIST"/>
+  </genericFunctions>
+  <genericFunctions name="TBC_Response" description="Forward input reference from TBC to brake and propulsion during normal conditions">
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericInput" name="TBC_Demand_Level_1"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericInput" name="TBC_Demand_Level_Validity_1"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericInput" name="TBC_Demand_Level_3"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericInput" name="TBC_Demand_Level_Validity_3"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericOutput" name="Master_Tractive_Braking_Effort"/>
+    <genericSteps xsi:type="se.mdh.dva501.generic:GenericOutput" name="Slave_Tractive_Braking_Effort"/>
+  </genericFunctions>
+</se.mdh.dva501.generic:Family>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<se.mdh.dva501.weaving:Weaving xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:se.mdh.dva501.weaving="http://www.mdh.se/dva501/weaving" name="AVENTRA weaving model">
+  <functionLinks>
+    <genericFunction href="My.generic#ActivateCab"/>
+    <productSpecificFunctions href="My.productspecific#ActivateCab_EAA"/>
+    <productSpecificFunctions href="My.productspecific#ActivateCab_LOT"/>
+    <productSpecificFunctions href="My.productspecific#ActivateCab_SWR"/>
+    <inputLinks>
+      <genericInput href="My.generic#MASTER_HW11_INPUT1"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.12"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.10"/>
+    </inputLinks>
+    <inputLinks>
+      <genericInput href="My.generic#MASTER_HW31_INPUT1"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.13"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.11"/>
+    </inputLinks>
+    <inputLinks>
+      <genericInput href="My.generic#SLAVE_HW13_INPUT1"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.16"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.14"/>
+    </inputLinks>
+    <inputLinks>
+      <genericInput href="My.generic#SLAVE_HW33_INPUT1"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.17"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.15"/>
+    </inputLinks>
+    <outputLinks>
+      <genericOutput href="My.generic#MASTER_SAFETY_CAB_CONSIST"/>
+      <productSpecificOutputs href="My.productspecific#//@productSpecificSteps.19"/>
+    </outputLinks>
+    <outputLinks>
+      <genericOutput href="My.generic#MASTER_SAFETY_CAB_TRAIN"/>
+      <productSpecificOutputs href="My.productspecific#//@productSpecificSteps.18"/>
+    </outputLinks>
+    <outputLinks>
+      <genericOutput href="My.generic#SLAVE_SAFETY_CAB_TRAIN"/>
+      <productSpecificOutputs href="My.productspecific#//@productSpecificSteps.20"/>
+    </outputLinks>
+    <outputLinks>
+      <genericOutput href="My.generic#SLAVE_SAFETY_CAB_CONSIST"/>
+      <productSpecificOutputs href="My.productspecific#//@productSpecificSteps.21"/>
+    </outputLinks>
+  </functionLinks>
+  <functionLinks>
+    <genericFunction href="My.generic#TBC_Response"/>
+    <productSpecificFunctions href="My.productspecific#TBC_Response_EAA"/>
+    <productSpecificFunctions href="My.productspecific#TBC_Response_LOT"/>
+    <productSpecificFunctions href="My.productspecific#TBC_Response_SWR"/>
+    <inputLinks>
+      <genericInput href="My.generic#TBC_Demand_Level_1"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.1"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.3"/>
+    </inputLinks>
+    <inputLinks>
+      <genericInput href="My.generic#TBC_Demand_Level_Validity_1"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.0"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.2"/>
+    </inputLinks>
+    <inputLinks>
+      <genericInput href="My.generic#TBC_Demand_Level_3"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.5"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.7"/>
+    </inputLinks>
+    <inputLinks>
+      <genericInput href="My.generic#TBC_Demand_Level_Validity_3"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.4"/>
+      <productSpecificInputs href="My.productspecific#//@productSpecificSteps.6"/>
+    </inputLinks>
+    <outputLinks>
+      <genericOutput href="My.generic#Master_Tractive_Braking_Effort"/>
+      <productSpecificOutputs href="My.productspecific#//@productSpecificSteps.8"/>
+    </outputLinks>
+    <outputLinks>
+      <genericOutput href="My.generic#Slave_Tractive_Braking_Effort"/>
+      <productSpecificOutputs href="My.productspecific#//@productSpecificSteps.9"/>
+    </outputLinks>
+  </functionLinks>
+</se.mdh.dva501.weaving:Weaving>

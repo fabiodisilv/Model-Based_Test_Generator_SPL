@@ -1,0 +1,51 @@
+TestCase Check_ActivateCab checks ActivateCab {
+	Force Signal MASTER_HW11_INPUT1 to True
+	Force Signal MASTER_HW31_INPUT1 to True
+	
+	Check Signal MASTER_SAFETY_CAB_TRAIN to 1 timeout 10000
+	Check Signal MASTER_SAFETY_CAB_CONSIST to 1 timeout 10000
+	
+	Check Signal SLAVE_SAFETY_CAB_TRAIN to 4 timeout 10000
+	Check Signal SLAVE_SAFETY_CAB_CONSIST to 3 timeout 10000
+}
+
+TestCase Check_ActivateCab2 checks ActivateCab except Product SWR {
+	Force Signal SLAVE_HW13_INPUT1 to True
+	Force Signal SLAVE_HW33_INPUT1 to True
+	
+	Check Signal SLAVE_SAFETY_CAB_TRAIN to 1 timeout 10000
+	Check Signal SLAVE_SAFETY_CAB_CONSIST to 1 timeout 10000
+	
+	Check Signal MASTER_SAFETY_CAB_TRAIN to 4 timeout 10000
+	Check Signal MASTER_SAFETY_CAB_CONSIST to 3 timeout 10000
+}
+
+TestCase Check_TBCResponse1 checks TBC_Response {
+	Force Signal TBC_Demand_Level_Validity_1 to true
+	Force Signal TBC_Demand_Level_1 to 100
+	
+	Check Signal Master_Tractive_Braking_Effort to -10 timeout 1000
+	Check Signal Slave_Tractive_Braking_Effort to -10 timeout 1000
+}
+
+TestCase Check_TBCResponse2 checks TBC_Response {
+	Force Signal TBC_Demand_Level_1 to 20000
+	
+	Check Signal Master_Tractive_Braking_Effort to 1222 timeout 10000
+	Check Signal Slave_Tractive_Braking_Effort to 1222 timeout 10000
+}
+
+TestCase Check_TBCResponse3 checks TBC_Response except Product SWR {
+	Force Signal TBC_Demand_Level_Validity_3 to true
+	Force Signal TBC_Demand_Level_3 to 100
+	
+	Check Signal Master_Tractive_Braking_Effort to -10 timeout 1000
+	Check Signal Slave_Tractive_Braking_Effort to -10 timeout 1000
+}
+
+TestCase Check_TBCResponse4 checks TBC_Response except Product SWR {
+	Force Signal TBC_Demand_Level_3 to 20000
+	
+	Check Signal Master_Tractive_Braking_Effort to 1222 timeout 10000
+	Check Signal Slave_Tractive_Braking_Effort to 1222 timeout 10000
+}
