@@ -9,3 +9,4 @@ Content of the repository:
 * Model-to-Text Transformation
 * Models
 * Generic Tests
+* Survey for the industrial relevance
