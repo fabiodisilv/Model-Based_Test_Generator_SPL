@@ -1,0 +1,38 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module.
+ */]
+[module services('http://www.mdh.se/dva501/testsuite/TestSuite', 'http://www.mdh.se/weaving')/]
+
+[**
+ * The documentation of the query
+ */]
+[query public getTestSuite(anOclAny: OclAny) : TestSuite
+	= invoke('it.fabio.transformation.services.Services', 'getTestSuite()', Sequence{})
+/]
+
+[**
+ * The documentation of the query
+ */]
+[query public getWeaving(anOclAny: OclAny) : Weaving
+	= invoke('it.fabio.transformation.services.Services', 'getWeaving()', Sequence{})
+/]
+
+[**
+ * The documentation of the query
+ * @param arg0
+ */]
+[query public getProducts(arg0 : Weaving) : Sequence(OclAny)
+	= invoke('it.fabio.transformation.services.Services', 'getProducts(weaving.Weaving)', Sequence{arg0})
+/]
+
+[**
+ * The documentation of the query
+ * @param arg0
+ * @param arg1
+ * @param arg2
+ */]
+[query public getSignal(arg0 : String, arg1 : String, arg2 : Weaving) : String
+	= invoke('it.fabio.transformation.services.Services', 'getSignal(java.lang.String, java.lang.String, weaving.Weaving)', Sequence{arg0, arg1, arg2})
+/]
+

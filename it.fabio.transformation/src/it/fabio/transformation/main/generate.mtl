@@ -1,0 +1,44 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.mdh.se/dva501/testsuite/TestSuite', 'http://www.mdh.se/weaving')]
+
+[import it::fabio::transformation::services::services /]
+
+[template public generateElement(aWeaving : Weaving)]
+[comment @main/]
+[let aTestSuite : TestSuite = getTestSuite()]
+[for (aProduct : String| getProducts(aWeaving))]
+	[file ('TestSuite'.concat(aProduct.concat('.cs')), false, 'UTF-8')]
+	[for (aTestCase : TestCase | aTestSuite.testCases)]
+		public void [aTestCase.name/](){
+			[for (aStep : Step | aTestCase.steps)]
+				[if (aStep.eClass().name.equalsIgnoreCase('Set'))]
+				[let aStep : Set = aStep]
+				Set([getSignal(aProduct, aStep.genericSignal.name, aWeaving)/]) = [aStep.value.name/];
+				[/let]
+				[/if]
+				[comment template FORCE /]
+				[if (aStep.eClass().name.equalsIgnoreCase('Force'))]
+				[let aStep : Force = aStep]
+				Force([getSignal(aProduct, aStep.genericSignal.name, aWeaving)/]) = [aStep.value.name/];
+				[/let]			
+				[/if]
+				[comment template UFNFORCE /]
+				[if (aStep.eClass().name.equalsIgnoreCase('Unforce'))]
+				[let aStep : Unforce = aStep]
+				Unforce([getSignal(aProduct, aStep.genericSignal.name, aWeaving)/]);
+				[/let]						
+				[/if]	
+				[comment template CHECK /]
+				[if (aStep.eClass().name.equalsIgnoreCase('Check'))]
+				[let aCheck : Check = aStep]
+				Check([getSignal(aProduct, aCheck.genericSignal.name, aWeaving)/], [aCheck.timeout.name/]) = [aCheck.value.name/];
+				[/let]
+				[/if]	
+			[/for]
+		}
+	[/for]
+[/file]	
+[/for]
+[/let]
+[/template]
+
